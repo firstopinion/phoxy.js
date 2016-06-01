@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>phoxy.js - Documentation</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/github.min.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+  <body screen_capture_injected="true">
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="sidebar"><div class="navbar navbar-inverse" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="https://github.com/firstopinion/phoxy.js">
+      phoxy.js
+      <small>(v0.0.1)</small>
+      <i class="fa fa-github"></i>
+    </a>
+      <iframe class="navbar-stars" src="https://ghbtns.com/github-btn.html?user=firstopinion&amp;repo=phoxy.js&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+  </div>
+</div><ul class="nav collapse navbar-collapse nav-sidebar sidebar-navbar-collapse">
+<li>
+  <a class="btn btn-first btn-last btn-active" href="./index.html">Documentation</a>
+</li>
+
+
+
+<li>
+  <a href="#getting-started">Getting Started</a>
+<ul class="nav nav-sidebar-sub">
+<li>
+  <a href="#package-managers">Package Managers</a>
+</li></ul></li><li>
+  <a href="#phoxy">
+  
+  phoxy
+</a>
+<ul class="nav nav-sidebar-sub">
+<li>
+  <a href="#configure">
+  
+  configure
+</a>
+</li><li>
+  <a href="#create">
+  
+  create
+</a>
+</li><li>
+  <a href="#upload">
+  
+  upload
+</a>
+</li></ul></li><li>
+  <a href="#test">Test</a>
+</li><li>
+  <a href="#contributing">Contributing</a>
+</li><li>
+  <a href="#license">License</a>
+</li></ul></div>
+ 
+      <div class="main">
+        <div class="container-fluid container-content">
+          <h2><a id="getting-started" href="#getting-started" class="anchor" name="getting-started"><span class="header-link"></span></a>Getting Started</h2><p>phoxy.js is a client library to preview and upload images to phoxy server.</p>
+<h3><a id="package-managers" href="#package-managers" class="anchor" name="package-managers"><span class="header-link"></span></a>Package Managers</h3><p><strong>npm</strong>: <code>npm install phoxy.js</code></p>
+
+          <div class="documentation row">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 col-desc"><h2>
+  <a id="phoxy" href="#phoxy" class="anchor" name="phoxy"><span class="header-link"></span></a>
+  phoxy
+</h2>
+<p>Client library to preview and upload images to phoxy server.</p></div>
+      <div class="col-lg-6 col-usage">
+      </div>
+    </div>
+
+    <div class="row"><div class="col-lg-6 col-desc"><h3>
+  <a id="configure" href="#configure" class="anchor" name="configure"><span class="header-link"></span></a>
+  configure
+</h3>
+<p>Configure the phoxy client.</p><div class="label label-info radius ctx-type">Function</div> <span>configure(url, credentials)</span>  <h4>Parameters</h4>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th style="width:15%">Name</th>
+        <th style="width:15%">Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>url</td>
+        <td>string</td>
+        <td>The root url of the phoxy service.</td>
+      </tr>
+      <tr>
+        <td>credentials</td>
+        <td>object</td>
+        <td>Phoxy service credentials.</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5>credentials</h5>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th style="width:15%">Name</th>
+        <th style="width:15%">Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>id</td>
+        <td>string</td>
+        <td>Phoxy authentication id.</td>
+      </tr>
+      <tr>
+        <td>secret</td>
+        <td>string</td>
+        <td>Phoxy authentication secret.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="col-lg-6 col-usage">  <pre><code>phoxy.configure(&#x27;PHOXY_URL&#x27;, {
+  id: &#x27;PHOXY_ID&#x27;,
+  secret: &#x27;PHOXY_SECRET&#x27;
+})</code></pre>
+</div></div>
+    <div class="row"><div class="col-lg-6 col-desc"><h3>
+  <a id="create" href="#create" class="anchor" name="create"><span class="header-link"></span></a>
+  create
+</h3>
+<p>Create a phoxy image instance. A phoxy image instance takes an image
+  file, optionally resizes it, and exposes an interface for both previewing
+  and uploading the image.</p><div class="label label-info radius ctx-type">Function</div> <span>create(file, options, callback)</span>  <h4>Parameters</h4>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th style="width:15%">Name</th>
+        <th style="width:15%">Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>file</td>
+        <td>file</td>
+        <td>File (https://developer.mozilla.org/en-US/docs/Web/API/File)</td>
+      </tr>
+      <tr>
+        <td>options</td>
+        <td>object</td>
+        <td>Image options</td>
+      </tr>
+      <tr>
+        <td>callback</td>
+        <td>function</td>
+        <td>Callback once image has been either created
+  or has thrown an error.</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5>options</h5>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th style="width:15%">Name</th>
+        <th style="width:15%">Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>maxWidth</td>
+        <td>number</td>
+        <td>Maximum width of generated image (will
+  be resized proportionally).</td>
+      </tr>
+      <tr>
+        <td>maxHeight</td>
+        <td>number</td>
+        <td>Maximum height of generated imaged
+  be resized proportionally).</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="col-lg-6 col-usage">  <pre><code>phoxy.create(file, {
+  maxWidth: 500
+}, function (err, img) {
+  // upload? render?
+});</code></pre>
+</div></div>
+    <div class="row"><div class="col-lg-6 col-desc"><h3>
+  <a id="upload" href="#upload" class="anchor" name="upload"><span class="header-link"></span></a>
+  upload
+</h3>
+<p>Upload an image to a phoxy compatible server.</p><div class="label label-info radius ctx-type">Function</div> <span>upload(image, callback)</span>  <h4>Parameters</h4>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th style="width:15%">Name</th>
+        <th style="width:15%">Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>image</td>
+        <td>object</td>
+        <td>Phoxy image instance to upload.</td>
+      </tr>
+      <tr>
+        <td>callback</td>
+        <td>function</td>
+        <td>Function to execute once image upload has
+  completed.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="col-lg-6 col-usage">  <pre><code>phoxy.uplad(image, function (jqXHR, textStatus) {
+  // response handling
+});</code></pre>
+</div></div>
+
+</div>
+</div>
+          <h2><a id="test" href="#test" class="anchor" name="test"><span class="header-link"></span></a>Test</h2><p>All dependencies must be installed (<code>npm install</code>)</p>
+<p>Tests also require the following env variables to be set:</p>
+<ul>
+<li><code>PHOXY_URL</code></li>
+<li><code>PHOXY_ID</code></li>
+<li><code>PHOXY_SECRET</code></li>
+</ul>
+<p><strong>Run</strong>: <code>npm test</code></p>
+
+          <h2><a id="contributing" href="#contributing" class="anchor" name="contributing"><span class="header-link"></span></a>Contributing</h2><p>In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using <a href="http://gruntjs.com/">Grunt</a>.</p>
+<p><em>Also, please don&#39;t edit files in the &quot;dist&quot; subdirectory as they are generated via Grunt. You&#39;ll find source code in the &quot;src&quot; subdirectory!</em></p>
+
+          <h2><a id="license" href="#license" class="anchor" name="license"><span class="header-link"></span></a>License</h2><p>The MIT License (MIT) Copyright (c) First Opinion</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/javascript.min.js"></script>
+  <script src="assets/js/easy-docs.js"></script>
+
+  </body>
+</html>

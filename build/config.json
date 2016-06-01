@@ -1,0 +1,8 @@
+{
+  "fileName": "phoxy",
+  "globalAlias": "phoxy",
+  "exclude": ["jQuery"],
+  "dependencies": {
+    "default": ["jQuery"]
+  }
+}

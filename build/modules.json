@@ -1,0 +1,9 @@
+{
+  "aflow": "/node_modules/aflow.js/dist/amd",
+  "canvas-to-blob": "/node_modules/blueimp-canvas-to-blob/js",
+  "jQuery": "/node_modules/jquery/dist/jquery",
+  "load-image": "/node_modules/blueimp-load-image/js",
+  "proclaim": "/node_modules/proclaim/lib/proclaim",
+  "sinon": "/node_modules/sinon/pkg/sinon",
+  "utl": "/node_modules/utl.js/dist/amd"
+}

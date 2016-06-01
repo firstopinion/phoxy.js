@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- meta -->
+    <meta charset="utf-8" />
+    <title>phoxy.js - test</title>
+
+    <!-- enable responsive viewport -->
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta http-equiv="cache-control" content="no-cache" />
+  </head>
+  <body>
+
+    <input type="file">
+    <h2>Client</h2>
+    <img class="client-image" crossorigin>
+    <h2>Server</h2>
+    <img class="server-image" crossorigin>
+
+    <!--deps -->
+    <script src="/node_modules/resemblejs/resemble.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/dist/phoxy.js"></script>
+
+    <!-- phoxy upload -->
+    <script>
+      var $input = $('input');
+      var $clientImage = $('.client-image');
+      var $serverImage = $('.server-image');
+      var loadCount = 0;
+
+      var createImage = function (file, callback) {
+        phoxy.create(file, {
+          maxWidth: 300
+        }, function (err, image) {
+          $clientImage.attr('src', image.preview);
+          callback(image);
+        });
+      };
+
+      var uploadImage = function (image) {
+        phoxy.upload(image, function (jqXHR, textStatus) {
+          $serverImage.attr('src', jqXHR.responseJSON['original_url']);
+          window['phoxyResponse'] = jqXHR.responseJSON;
+        });
+      };
+
+      var onImageLoad = function () {
+        setTimeout(function () {
+          loadCount ++;
+          onImagesLoaded();
+        }, 1000);
+      };
+
+      var onImagesLoaded = function () {
+        if (loadCount >= 2) {
+          resemble($clientImage[0].src).compareTo($serverImage[0].src).onComplete(function (result) {
+            window['imagesLoaded'] = result.rawMisMatchPercentage === 0;
+          });
+        }
+      };
+
+      $clientImage.on('load', onImageLoad);
+      $serverImage.on('load', onImageLoad);
+
+      $('input').on('change', function (evt) {
+        createImage(evt.target.files[0], uploadImage);
+      });
+    </script>
+
+  </body>
+</html>
