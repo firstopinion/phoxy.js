@@ -1,0 +1,37 @@
+{
+  "name": "phoxy.js",
+  "description": "Client library to preview and upload images to phoxy server.",
+  "author": "Jarid Margolin <jarid@firstopinionapp.com>",
+  "version": "0.0.1",
+  "homepage": "https://github.com/firstopinion/phoxy.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/firstopinion/phoxy.js"
+  },
+  "bugs": {
+    "url": "https://github.com/firstopinion/phoxy.js/issues"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "main": "dist/common/phoxy.js",
+  "dependencies": {
+    "aflow.js": "~0.2.0",
+    "blueimp-canvas-to-blob": "~3.3.0",
+    "blueimp-load-image": "~2.6.1",
+    "jquery": "~2.1.1",
+    "utl.js": "~0.1.0"
+  },
+  "devDependencies": {
+    "bluebird": "~3.4.0",
+    "easy-build": "~1.0.0",
+    "grunt": "~0.4.5",
+    "proclaim": "~3.4.1",
+    "q": "~1.4.1",
+    "resemblejs": "~2.2.1",
+    "sauce-connect-launcher": "~0.14.0",
+    "selenium-webdriver": "~2.53.2",
+    "sinon": "~1.17.4"
+  },
+  "license": "MIT"
+}
